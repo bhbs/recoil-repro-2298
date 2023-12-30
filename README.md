@@ -14,3 +14,15 @@ or
 npm install
 npm run dev
 ```
+
+## Fix
+
+```sh
+FILE="./node_modules/recoil/es/index.js"
+ORIGINAL="other.contents === this.contents"
+REPLACEMENT="Object.is(other.contents, this.contents)"
+sed -i '' "s/$ORIGINAL/$REPLACEMENT/" $FILE
+
+npm run build
+npm run preview
+```
